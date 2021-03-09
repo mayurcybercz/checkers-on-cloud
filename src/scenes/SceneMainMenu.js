@@ -48,7 +48,7 @@ class SceneMainMenu extends Phaser.Scene {
     this.joinGame = this.add.text(
       this.game.config.width * 0.2,
       this.game.config.height * 0.4,
-      'Join a game', {
+      'Join game', {
         color: '#d0c600',
         fontFamily: 'sans-serif',
         fontSize: '30px',
