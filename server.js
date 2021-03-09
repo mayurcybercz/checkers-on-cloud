@@ -9,9 +9,7 @@ const io = require('socket.io').listen(server);
 const players = {};
 const games = {};
 
-// app.use(express.static(`${__dirname}/dist`));
-app.set('dist', __dirname + '/dist');
-console.log(__dirname)
+app.use(express.static(`${__dirname}/dist`));
 
 app.get('/', (req, res) => {
   res.sendFile(`${__dirname}/index.html`);
