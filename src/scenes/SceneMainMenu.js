@@ -15,9 +15,21 @@ class SceneMainMenu extends Phaser.Scene {
       console.log(sckt);
     });
 
-    this.startGame = this.add.text(
+    this.titleGame = this.add.text(
       this.game.config.width * 0.2,
       this.game.config.height * 0.2,
+      'Ninja Checkers', {
+        color: '#d0c600',
+        fontFamily: 'sans-serif',
+        fontSize: '30px',
+        lineHeight: 1.3,
+        align: 'center',
+      },
+    );
+
+    this.startGame = this.add.text(
+      this.game.config.width * 0.2,
+      this.game.config.height * 0.4,
       'Start a new game', {
         color: '#d0c600',
         fontFamily: 'sans-serif',
@@ -47,7 +59,7 @@ class SceneMainMenu extends Phaser.Scene {
 
     this.joinGame = this.add.text(
       this.game.config.width * 0.2,
-      this.game.config.height * 0.4,
+      this.game.config.height * 0.6,
       'Join a game', {
         color: '#d0c600',
         fontFamily: 'sans-serif',
