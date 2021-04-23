@@ -4,8 +4,23 @@ const express = require('express');
 const app = express();
 const server = require('http').Server(app);
 
-const io = require('socket.io').listen(server);
+//<----new code
+// const bodyParser = require('body-parser');
+// const mongoose = require('mongoose');
+// app.use(bodyParser.json());
+// // collections
+// const Users = require('./models/PlayerModel');
+// const Games = require('./models/GameModel');
 
+// mongoose.connect('mongodb://localhost:27017/checkers',{useNewUrlParser:true},
+//     function(err){
+//         if(err){
+//             throw err
+//         }
+//         console.log('Database connected')
+
+//----->
+const io = require('socket.io').listen(server);
 const players = {};
 const games = {};
 
