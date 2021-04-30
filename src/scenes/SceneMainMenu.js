@@ -31,10 +31,11 @@ class SceneMainMenu extends Phaser.Scene {
     this.leaderBoard.on('pointerdown',()=>{
         const div = document.createElement('div');
         div.innerHTML = `
+        <p>hello</p>
         <ul>
-        <li>ABC</li>
-        <li>DEF</li>
-        <li>GHI</li>
+        <li style="color:white" >ABC</li>
+        <li style="color:white">DEF</li>
+        <li style="color:white">GHI</li>
         </ul>
       `;
     this.leaderBoard.disableInteractive();
