@@ -20,7 +20,7 @@ class SceneMainMenu extends Phaser.Scene {
       this.game.config.width * 0,
       this.game.config.height * 0,
       'Leaderboard', {
-        color: '#d0c600',
+        color: '#32a852',
         fontFamily: 'sans-serif',
         fontSize: '30px',
         lineHeight: 1.3,
@@ -30,8 +30,8 @@ class SceneMainMenu extends Phaser.Scene {
 
     this.leaderBoard.setInteractive({useHandCursor: true});
     this.leaderBoard.on('pointerup',()=>{
-    this.leaderBoard.text="names list";    
-    this.leaderBoard.disableInteractive();
+      this.leaderBoard.text="Ameya \n Mayur \n Prayag\n Tanmay";    
+      this.leaderBoard.disableInteractive();
     });
 
 
