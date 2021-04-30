@@ -5,6 +5,7 @@ class SceneMainMenu extends Phaser.Scene {
   constructor() {
     super({ key: 'SceneMainMenu' });
   }
+  //send player leadeboard data via inint //list of top 10 from mongo
 
   create() {
     // eslint-disable-next-line no-undef
@@ -28,16 +29,8 @@ class SceneMainMenu extends Phaser.Scene {
     );
 
     this.leaderBoard.setInteractive({useHandCursor: true});
-    this.leaderBoard.on('pointerdown',()=>{
-        const div = document.createElement('div');
-        div.innerHTML = `
-        <p>hello</p>
-        <ul>
-        <li style="color:white" >ABC</li>
-        <li style="color:white">DEF</li>
-        <li style="color:white">GHI</li>
-        </ul>
-      `;
+    this.leaderBoard.on('pointerup',()=>{
+    this.leaderBoard.text="names list";    
     this.leaderBoard.disableInteractive();
     });
 
