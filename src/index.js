@@ -6,8 +6,8 @@ import SceneMainMenu from './scenes/SceneMainMenu';
 const config = {
   type: Phaser.WEBGL,
   parent: 'divld',
-  width: 1000,
-  height: 800,
+  width: 800,
+  height: 600,
   backgroundColor: 'blue',
   dom: {
     createContainer: true,
