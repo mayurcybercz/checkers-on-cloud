@@ -15,10 +15,10 @@ class SceneMainMenu extends Phaser.Scene {
       console.log(sckt);
     });
 
-    this.startGame = this.add.text(
+    this.leaderBoard = this.add.text(
       this.game.config.width * 0,
       this.game.config.height * 0,
-      'Leaderbaord', {
+      'Leaderboard', {
         color: '#d0c600',
         fontFamily: 'sans-serif',
         fontSize: '30px',
@@ -27,8 +27,22 @@ class SceneMainMenu extends Phaser.Scene {
       },
     );
 
+    this.leaderBoard.setInteractive({useHandCursor: true});
+    this.leaderBoard.on('pointerdown',()=>{
+        const div = document.createElement('div');
+        div.innerHTML = `
+        <ul>
+        <li>ABC</li>
+        <li>DEF</li>
+        <li>GHI</li>
+        </ul>
+      `;
+    this.leaderBoard.disableInteractive();
+    });
+
+
     this.startGame = this.add.text(
-      this.game.config.width * 0.2,
+      this.game.config.width * 0.5,
       this.game.config.height * 0.2,
       'Start new Ninja Checkers', {
         color: '#d0c600',
@@ -58,7 +72,7 @@ class SceneMainMenu extends Phaser.Scene {
     });
 
     this.joinGame = this.add.text(
-      this.game.config.width * 0.2,
+      this.game.config.width * 0.5,
       this.game.config.height * 0.4,
       'Join a Friend\'s game', {
         color: '#d0c600',
