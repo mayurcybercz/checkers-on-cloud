@@ -1,0 +1,38 @@
+.c-app {
+  background-color: #3a4750 !important;
+  font-size: 18px;
+}
+
+.navbar,
+.dropdown-menu {
+  background-color: #303841;
+}
+
+.navbar.navbar-light .navbar-nav .nav-link,
+.navbar-brand,
+a {
+  color: #ffffff !important;
+  font-size: 16px;
+}
+
+.c-header {
+  border-color: #3a4750;
+}
+
+.c-footer {
+  background: #303841;
+  border-color: #303841;
+}
+
+.card,
+.card-header {
+  background: #303841;
+}
+
+.badge {
+  color: #000000;
+}
+
+.dropdown-item:hover {
+  background-color: #3a4750;
+}

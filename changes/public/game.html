@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Ninja Checkers Game</title>
+    <!-- Main styles for this application-->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css"
+    />
+    <!-- Icons this application-->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@coreui/icons@2.0.0-beta.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/phaser.min.js"></script>
+    <script src="js/main.js"></script>
+  </head>
+  <body class="c-app">
+    <div class="c-wrapper c-fixed-components">
+      <nav class="navbar navbar-expand-lg navbar-light c-header c-header-light">
+        <a class="navbar-brand" href="home.html">
+          <img
+            src="img/checkersIcon.png"
+            width="30"
+            height="30"
+            class="d-inline-block align-top"
+            alt="ninja-logo"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="home.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="game.html">Start Game</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdownMenuLink"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <!--TODO: Get UserName-->
+                {{User Name}}
+              </a>
+              <div
+                class="dropdown-menu"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <a class="dropdown-item" href="profile.html">Profile</a>
+                <!--TODO: Add logout function-->
+                <a class="dropdown-item" onclick="">Logout</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="c-body">
+        <main class="c-main">
+          <div class="container-fluid">
+            <div class="fade-in">
+              <div
+                id="game"
+                style="display: block; width: 100%; text-align: center"
+              ></div>
+            </div>
+          </div>
+        </main>
+        <footer class="c-footer text-light">
+          <div><span>Ninja Checkers &copy; 2021 all rights reserved</span></div>
+        </footer>
+      </div>
+    </div>
+    <!-- CoreUI and necessary plugins-->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <!--[if IE]><!-->
+    <script src="https://unpkg.com/@coreui/coreui/dist/js/coreui.min.js"></script>
+    <!--<![endif]-->
+    <script src="js/refreshToken.js"></script>
+    <script>
+      function signOut() {
+        $.ajax({
+          type: "POST",
+          url: "/logout",
+          success: (data) => {
+            location.replace("/index.html");
+          },
+          error: (xhr) => {
+            alert(JSON.stringify(xhr));
+            location.replace("/index.html");
+          },
+        });
+      }
+    </script>
+  </body>
+</html>
