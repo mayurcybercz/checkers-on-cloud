@@ -13,6 +13,7 @@
       href="https://unpkg.com/@coreui/icons@2.0.0-beta.3/css/all.min.css"
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/helpers/signout.js"></script>
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body class="c-app">
@@ -133,20 +134,5 @@
     <script src="https://unpkg.com/@coreui/coreui/dist/js/coreui.min.js"></script>
     <!--<![endif]-->
     <script src="js/refreshToken.js"></script>
-    <script>
-      function signOut() {
-        $.ajax({
-          type: "POST",
-          url: "/logout",
-          success: (data) => {
-            location.replace("/index.html");
-          },
-          error: (xhr) => {
-            alert(JSON.stringify(xhr));
-            location.replace("/index.html");
-          },
-        });
-      }
-    </script>
   </body>
 </html>

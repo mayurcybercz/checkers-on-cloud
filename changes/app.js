@@ -51,7 +51,7 @@ io.on("connection", function (socket) {
   socket.on("joinGame", (bID) => {
     players[number].boardId = bID;
     if (games[bID].play2 === "") {
-      games[bID.play2] = players[number];
+      games[bID].play2 = players[number];
       setTimeout(() => {
         io.to(games[bID].play1.playerId).emit("startingGame", false, bID);
         io.to(games[bID].play2.playerId).emit("gameBegin", true, bID);
@@ -103,7 +103,6 @@ io.on("connection", function (socket) {
   socket.on("disconnect", () => {
     console.log("user disconnected");
     delete players[socket.id];
-    io.emit("disconnect", socket.id);
   });
 });
 
