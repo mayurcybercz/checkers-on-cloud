@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>Ninja Log In</title>
+    <!-- Main styles for this application-->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css"
+    />
+    <!-- Icons this application-->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@coreui/icons@2.0.0-beta.3/css/all.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="c-app flex-row align-items-center">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card-group">
+            <div class="card p-4">
+              <div class="card-body text-light">
+                <h1>Login</h1>
+                <p class="text-muted">Sign In to Ninja Checkers</p>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <use class="cil-envelope-open"></use>
+                    </span>
+                  </div>
+                  <input
+                    class="form-control"
+                    type="email"
+                    id="email"
+                    placeholder="Email address"
+                  />
+                </div>
+                <div class="input-group mb-4">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <use class="cil-lock-locked"></use>
+                    </span>
+                  </div>
+                  <input
+                    class="form-control"
+                    type="password"
+                    id="password"
+                    placeholder="Password"
+                    required
+                  />
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <button
+                      class="btn btn-danger px-4"
+                      type="button"
+                      onclick="signOn()"
+                    >
+                      Login
+                    </button>
+                  </div>
+                  <div class="col-6 text-right">
+                    <a href="/signup.html">Register Here</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- CoreUI and necessary plugins-->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <!--[if IE]><!-->
+    <script src="https://unpkg.com/@coreui/coreui/dist/js/coreui.min.js"></script>
+    <!--<![endif]-->
+    <script>
+      function signOn() {
+        var data = { email: $("#email").val(), password: $("#password").val() };
+
+        $.ajax({
+          type: "POST",
+          url: "/login",
+          data,
+          success: (data) => {
+            location.replace("/home.html");
+          },
+          error: (xhr) => {
+            alert(JSON.stringify(xhr));
+            location.replace("/index.html");
+          },
+        });
+      }
+    </script>
+  </body>
+</html>

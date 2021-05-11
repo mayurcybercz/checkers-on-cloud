@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>Ninja Registration</title>
+    <!-- Main styles for this application-->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css"
+    />
+    <!-- Icons this application-->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@coreui/icons@2.0.0-beta.3/css/all.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="c-app flex-row align-items-center">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card mx-4 text-light">
+            <div class="card-body p-4">
+              <h1>Register</h1>
+              <p class="text-muted">Create your account</p>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <use class="cil-user"></use>
+                  </span>
+                </div>
+                <input
+                  class="form-control"
+                  type="text"
+                  id="username"
+                  placeholder="Username"
+                />
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <use class="cil-envelope-open"></use>
+                  </span>
+                </div>
+                <input
+                  class="form-control"
+                  type="text"
+                  id="email"
+                  placeholder="Email"
+                />
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <use class="cil-lock-locked"></use>
+                  </span>
+                </div>
+                <input
+                  class="form-control"
+                  type="password"
+                  id="password"
+                  placeholder="Password"
+                />
+              </div>
+              <button
+                class="btn btn-block btn-danger"
+                type="button"
+                onclick="signUp()"
+              >
+                Create Account
+              </button>
+              <a href="/index.html">Have an account? Login here</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- CoreUI and necessary plugins-->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <!--[if IE]><!-->
+    <script src="https://unpkg.com/@coreui/coreui/dist/js/coreui.min.js"></script>
+    <!--<![endif]-->
+    <script>
+      function signUp() {
+        var data = {
+          email: $("#email").val(),
+          password: $("#password").val(),
+          name: $("#username").val(),
+        };
+        $.ajax({
+          type: "POST",
+          url: "/signup",
+          data,
+          success: function (data) {
+            alert("user created successfully");
+            location.replace("/index.html");
+          },
+          error: function (xhr) {
+            alert(JSON.stringify(xhr));
+            location.replace("/signup.html");
+          },
+        });
+      }
+    </script>
+  </body>
+</html>
